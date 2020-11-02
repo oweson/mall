@@ -2,10 +2,13 @@ package com.macro.mall;
 
 
 import cn.hutool.json.JSONUtil;
+import com.github.pagehelper.PageInfo;
 import com.macro.mall.dao.PmsMemberPriceDao;
 import com.macro.mall.dao.PmsProductDao;
 import com.macro.mall.dto.PmsProductResult;
+import com.macro.mall.mapper.SmsHomeRecommendSubjectMapper;
 import com.macro.mall.model.PmsMemberPrice;
+import com.macro.mall.model.SmsHomeRecommendSubject;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +34,9 @@ public class PmsDaoTests {
     private PmsProductDao productDao;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private SmsHomeRecommendSubjectMapper smsHomeRecommendSubjectMapper;
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsDaoTests.class);
     @Test
     @Transactional
@@ -58,5 +64,12 @@ public class PmsDaoTests {
     @Test
     public  void passwordFound(){
         System.out.println(passwordEncoder.encode("123456"));
+    }
+
+    @Test
+    public void sms(){
+        List<SmsHomeRecommendSubject> smsHomeRecommendSubjects = smsHomeRecommendSubjectMapper.selectByExample(null);
+        PageInfo<SmsHomeRecommendSubject> smsHomeRecommendSubjectPageInfo = new PageInfo<>(smsHomeRecommendSubjects);
+        System.out.println(smsHomeRecommendSubjectPageInfo);
     }
 }

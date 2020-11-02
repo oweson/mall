@@ -7,6 +7,7 @@ import com.macro.mall.model.SmsHomeRecommendSubjectExample;
 import com.macro.mall.service.SmsHomeRecommendSubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
 public class SmsHomeRecommendSubjectServiceImpl implements SmsHomeRecommendSubjectService {
     @Autowired
     private SmsHomeRecommendSubjectMapper recommendProductMapper;
-    @Override
+    @Override @Transactional(rollbackFor = Exception.class)
     public int create(List<SmsHomeRecommendSubject> recommendSubjectList) {
         for (SmsHomeRecommendSubject recommendProduct : recommendSubjectList) {
             recommendProduct.setRecommendStatus(1);
