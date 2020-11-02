@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +29,8 @@ public class PmsDaoTests {
     private PmsMemberPriceDao memberPriceDao;
     @Autowired
     private PmsProductDao productDao;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsDaoTests.class);
     @Test
     @Transactional
@@ -50,5 +53,10 @@ public class PmsDaoTests {
         PmsProductResult productResult = productDao.getUpdateInfo(7L);
         String json = JSONUtil.parse(productResult).toString();
         LOGGER.info(json);
+    }
+
+    @Test
+    public  void passwordFound(){
+        System.out.println(passwordEncoder.encode("123456"));
     }
 }

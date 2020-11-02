@@ -87,7 +87,7 @@ public class SmsHomeAdvertiseServiceImpl implements SmsHomeAdvertiseService {
                 criteria.andEndTimeBetween(start, end);
             }
         }
-        example.setOrderByClause("sort desc");
+        example.setOrderByClause("sort desc");// 格式化时间处理；
         return advertiseMapper.selectByExample(example);
     }
 }
