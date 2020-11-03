@@ -48,21 +48,24 @@ public class PmsBrandServiceImpl implements PmsBrandService {
         PmsBrand pmsBrand = new PmsBrand();
         BeanUtils.copyProperties(pmsBrandParam, pmsBrand);
         pmsBrand.setId(id);
-        //如果创建时首字母为空，取名称的第一个为首字母
+        // 1 如果更新时首字母为空，取名称的第一个为首字母
         if (StringUtils.isEmpty(pmsBrand.getFirstLetter())) {
             pmsBrand.setFirstLetter(pmsBrand.getName().substring(0, 1));
         }
-        //更新品牌时要更新商品中的品牌名称
+        // 2 更新品牌时要更新商品中的品牌名称->级联更新
         PmsProduct product = new PmsProduct();
+        // 3 商品里面存在冗余的字段，品牌名字
         product.setBrandName(pmsBrand.getName());
         PmsProductExample example = new PmsProductExample();
         example.createCriteria().andBrandIdEqualTo(id);
-        productMapper.updateByExampleSelective(product,example);
+        // 4 先更新商品，最后品牌
+        productMapper.updateByExampleSelective(product, example);
         return brandMapper.updateByPrimaryKeySelective(pmsBrand);
     }
 
     @Override
     public int deleteBrand(Long id) {
+        // todo 删除了品牌，商品哪个字段怎么更新呢？？？
         return brandMapper.deleteByPrimaryKey(id);
     }
 
@@ -78,6 +81,7 @@ public class PmsBrandServiceImpl implements PmsBrandService {
         PageHelper.startPage(pageNum, pageSize);
         PmsBrandExample pmsBrandExample = new PmsBrandExample();
         pmsBrandExample.setOrderByClause("sort desc");
+        // 权重越大越排到前面
         PmsBrandExample.Criteria criteria = pmsBrandExample.createCriteria();
         if (!StringUtils.isEmpty(keyword)) {
             criteria.andNameLike("%" + keyword + "%");

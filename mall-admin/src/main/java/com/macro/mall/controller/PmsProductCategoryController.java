@@ -70,6 +70,11 @@ public class PmsProductCategoryController {
         return CommonResult.success(productCategory);
     }
 
+    /**
+     * todo 删除商品分类，商品怎么办？还是一个商品属于多个分类的？
+     * @param id
+     * @return
+     */
     @ApiOperation("删除商品分类")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     @ResponseBody
