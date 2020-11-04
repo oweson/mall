@@ -24,14 +24,14 @@ public class SmsCouponHistoryServiceImpl implements SmsCouponHistoryService {
         PageHelper.startPage(pageNum,pageSize);
         SmsCouponHistoryExample example = new SmsCouponHistoryExample();
         SmsCouponHistoryExample.Criteria criteria = example.createCriteria();
-        if(couponId!=null){
+        if(couponId!=null){// 1 优惠卷id
             criteria.andCouponIdEqualTo(couponId);
         }
         if(useStatus!=null){
-            criteria.andUseStatusEqualTo(useStatus);
+            criteria.andUseStatusEqualTo(useStatus);// 2 状态
         }
         if(!StringUtils.isEmpty(orderSn)){
-            criteria.andOrderSnEqualTo(orderSn);
+            criteria.andOrderSnEqualTo(orderSn);// 3 订单
         }
         return historyMapper.selectByExample(example);
     }
