@@ -16,8 +16,8 @@ import java.util.List;
  * Created by macro on 2018/6/19.
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Document(indexName = "pms", type = "product",shards = 1,replicas = 0)
+@EqualsAndHashCode(callSuper = false)//, type = "product",shards = 1,replicas = 0
+@Document(indexName = "pms")
 public class EsProduct implements Serializable {
     private static final long serialVersionUID = -1L;
     @Id

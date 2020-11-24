@@ -49,6 +49,8 @@ public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
         return ids.size();
     }
 
+
+
     @Override
     public Page<MemberReadHistory> list(Integer pageNum, Integer pageSize) {
         UmsMember member = memberService.getCurrentMember();
