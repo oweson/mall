@@ -24,3 +24,9 @@
 1 **首页品牌推荐管理**
 
 2 **会员收货地址管理Controller**
+
+3 **会员商品浏览记录管理Controller**
+
+4 **会员关注品牌管理Controller**
+
+5 **申请退货管理Controller**
