@@ -30,3 +30,7 @@
 4 **会员关注品牌管理Controller**
 
 5 **申请退货管理Controller**
+
+6 **购物车**
+
+7 **会员收藏管理Controller**

@@ -43,6 +43,7 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
         cartItem.setMemberId(currentMember.getId());
         cartItem.setMemberNickname(currentMember.getNickname());
         cartItem.setDeleteStatus(0);
+        // 判断购物车是否已经存在！
         OmsCartItem existCartItem = getCartItem(cartItem);
         if (existCartItem == null) {
             cartItem.setCreateDate(new Date());

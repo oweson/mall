@@ -46,7 +46,7 @@ public class OmsCartItemController {
         return CommonResult.success(cartItemList);
     }
 
-    @ApiOperation("获取某个会员的购物车列表,包括促销信息")
+    @ApiOperation("获取某个会员的购物车列表,包括促销信息")// todo
     @RequestMapping(value = "/list/promotion", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<CartPromotionItem>> listPromotion(@RequestParam(required = false) List<Long> cartIds) {
@@ -66,7 +66,7 @@ public class OmsCartItemController {
         return CommonResult.failed();
     }
 
-    @ApiOperation("获取购物车中某个商品的规格,用于重选规格")
+    @ApiOperation("获取购物车中某个商品的规格,用于重选规格")// todo
     @RequestMapping(value = "/getProduct/{productId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CartProduct> getCartProduct(@PathVariable Long productId) {
