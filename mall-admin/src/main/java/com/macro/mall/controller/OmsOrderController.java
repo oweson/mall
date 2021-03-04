@@ -33,7 +33,7 @@ public class OmsOrderController {
         List<OmsOrder> orderList = orderService.list(queryParam, pageSize, pageNum);
         return CommonResult.success(CommonPage.restPage(orderList));
     }
-
+   // todo
     @ApiOperation("批量发货")
     @RequestMapping(value = "/update/delivery", method = RequestMethod.POST)
     @ResponseBody
@@ -66,7 +66,7 @@ public class OmsOrderController {
         }
         return CommonResult.failed();
     }
-
+    // todo
     @ApiOperation("获取订单详情:订单信息、商品信息、操作记录")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody

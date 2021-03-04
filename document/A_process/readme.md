@@ -1,3 +1,11 @@
+## 后台
+
+###### 账号：admin  123456
+
+1 CmsPrefrenceAreaController 商品优选管理 过！
+2 OmsOrderReturnReasonController 过！
+
+
 ## 1 广告管理+1
 
 **分页处理不错，时间处理**
