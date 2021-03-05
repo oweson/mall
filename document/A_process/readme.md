@@ -4,6 +4,9 @@
 
 1 CmsPrefrenceAreaController 商品优选管理 过！
 2 OmsOrderReturnReasonController 过！
+3 OmsCompanyAddressController 收货地址管理 过！
+4 CmsSubjectController 商品专题管理
+5 PmsBrandController
 
 
 ## 1 广告管理+1
